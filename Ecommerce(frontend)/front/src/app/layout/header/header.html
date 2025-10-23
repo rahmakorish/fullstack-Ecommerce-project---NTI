@@ -1,0 +1,19 @@
+<nav class="navbar">
+  <a routerLink="home" routerLinkActive="activeLink">Home</a>
+  <a routerLink="marketplace" routerLinkActive="activeLink">Market</a>
+  <a routerLink="account" routerLinkActive="activeLink">Account</a>
+  <a routerLink="faq" routerLinkActive="activeLink">FAQ</a>
+  <a routerLink="testimonial" routerLinkActive="activeLink">Testimonial</a>
+  <a routerLink="cart" routerLinkActive="activeLink">my Cart</a>
+  <a routerLink="order" routerLinkActive="activeLink">my orders</a>
+
+
+  @if(!isloggedin){
+    <a routerLink="signup" routerLinkActive="activeLink">Sign Up</a>
+    <a routerLink="login" routerLinkActive="activeLink">Login</a>
+  }
+  @else{
+    <span class="welcome">Welcome, {{name}}</span>
+    <a routerLink="login" routerLinkActive="activeLink" (click)="logout()">Logout</a>
+  }
+</nav>

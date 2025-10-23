@@ -1,0 +1,46 @@
+<h1 class="cart-title">🛒 My Cart</h1>
+
+<section class="cart-container">
+  @if (myCart && cartItems) {
+  <div *ngFor="let item of cartItems; let i = index" class="cart-item-card">
+    @if(item.isremoved == false){
+    <div class="cart-item-header">
+      <h3>Item {{ i + 1 }}</h3>
+      @if(item._id) {<button type="button" (click)="removeItem(item.product._id)">
+        Remove Item</button
+      >}
+    </div>
+
+    <div class="cart-item-body">
+      <img [src]="staticURL + item.imgURL" alt="{{ item.product }}" class="product-image" />
+
+      <p><strong>Product:</strong> {{ item._id }}</p>
+      <p><strong>Quantity:</strong> {{ item.quantity }}</p>
+    </div>
+    }
+
+    <div class="cart-summary">
+      <p><strong>Placed At:</strong> {{ myCart.createdAt | date : 'medium' }}</p>
+      <p><strong>Total Cart Price:</strong> {{ myCart.totalItemsPrice | currency : 'EGP' }}</p>
+    </div>
+    <button
+      class="checkout-btn"
+      (click)="placeOrderFromCart()"
+      [disabled]="!myCart || !cartItems.length"
+    >
+      Place Order Now!
+    </button>
+  </div>
+
+  <button class="checkout-btn">
+    <a routerLink="/marketplace">Browse More Products</a>
+  </button>
+  } @else {
+  <div class="empty-cart">
+    <p>Your cart is empty 🛍️</p>
+    <a routerLink="/marketplace" class="browse-btn">Browse Products</a>
+  </div>
+  }
+</section>
+
+<app-order></app-order>

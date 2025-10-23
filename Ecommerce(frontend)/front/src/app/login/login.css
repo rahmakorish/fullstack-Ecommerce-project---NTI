@@ -1,0 +1,77 @@
+/* Center the form */
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 60px auto;
+  background: #fff;
+  border-radius: 12px;
+  padding: 30px 40px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Heading */
+.login-container h1 {
+  color: #222;
+  margin-bottom: 25px;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+/* Labels */
+.login-container label {
+  display: block;
+  text-align: left;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Inputs */
+.login-container input {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+/* Input focus effect */
+.login-container input:focus {
+  border-color: #00bcd4;
+  box-shadow: 0 0 4px rgba(0, 188, 212, 0.3);
+}
+
+/* Button */
+.login-container button {
+  width: 100%;
+  background-color: #00bcd4;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+/* Hover & active effects */
+.login-container button:hover {
+  background-color: #0097a7;
+}
+
+.login-container button:active {
+  transform: scale(0.98);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 500px) {
+  .login-container {
+    padding: 25px 20px;
+  }
+}

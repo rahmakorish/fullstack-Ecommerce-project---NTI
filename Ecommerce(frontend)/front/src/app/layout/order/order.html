@@ -1,0 +1,24 @@
+@if (myOrders) {
+  <div class="orders-container">
+    <h2 class="orders-title">My Orders</h2>
+
+    <div *ngFor="let item of orderItems; let i = index" class="order-card">
+      <div class="order-header">
+        <h3>Order #{{ i + 1 }}</h3>
+        <span  [ngClass]="item.status.toLowerCase()">
+          {{ item.status }}
+        </span>
+      </div>
+
+      <div class="order-details">
+        <p><strong>Order ID:</strong> {{ item._id }}</p>
+        <p><strong>Total Price:</strong> {{ item.TotalPrice | currency:'EGP' }}</p>
+        <p><strong>Quantity:</strong> {{ item }}</p>
+      </div>
+    </div>
+
+    <div class="total-summary">
+      <p><strong>Total Orders Price:</strong> {{ ordrstotalPrice| currency:'EGP' }}</p>
+    </div>
+  </div>
+}

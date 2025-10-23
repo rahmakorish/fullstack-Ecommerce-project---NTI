@@ -1,0 +1,79 @@
+/* Section Title */
+.account-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 20px 0;
+  text-align: center;
+  color: #2c3e50;
+}
+
+/* User Card Container */
+.user-card {
+  background-color: #f8f9fb;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.user-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Basic Info */
+.user-details p {
+  margin: 6px 0;
+  font-size: 15px;
+  color: #333;
+}
+
+/* Location Section */
+.user-locations {
+  margin-top: 12px;
+}
+
+.location-title {
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+.location-item p {
+  background-color: #eef6ff;
+  border-left: 4px solid #0078d7;
+  padding: 6px 10px;
+  border-radius: 6px;
+  margin: 4px 0;
+  color: #333;
+  font-size: 14px;
+}
+
+.loc-label {
+  font-weight: 600;
+  color: #005fa3;
+}
+
+/* No Locations */
+.no-locations {
+  font-style: italic;
+  color: #888;
+}
+
+/* Divider */
+.divider {
+  border: none;
+  height: 1px;
+  background: #ddd;
+  margin-top: 15px;
+}
+
+/* Orders Section */
+.orders-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-top: 30px;
+}

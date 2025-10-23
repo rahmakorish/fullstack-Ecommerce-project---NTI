@@ -1,0 +1,124 @@
+.faq-section {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 16px;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+.faq-heading {
+  text-align: center;
+  font-size: 2rem;
+  color: #222;
+  margin-bottom: 24px;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.faq-item {
+  background: #f9fafb;
+  border: 1px solid #e4e4e4;
+  border-radius: 8px;
+  padding: 1rem;
+  transition: background 0.2s ease;
+}
+
+.faq-item:hover {
+  background: #f3f4f6;
+}
+
+.faq-question {
+  margin: 0 0 0.5rem 0;
+  color: #111827;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.faq-answer {
+  margin: 0;
+  color: #374151;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.q-label,
+.a-label {
+  font-weight: 700;
+  color: #2563eb;
+  margin-right: 6px;
+}
+
+.empty-msg {
+  text-align: center;
+  color: #6b7280;
+  font-style: italic;
+}
+.faq-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0 30px;
+  max-width: 600px;
+  background-color: #f9f9f9;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.faq-input,
+.faq-textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+.faq-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.faq-submit-btn {
+  align-self: flex-end;
+  padding: 10px 18px;
+  background-color: #0078d7;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.faq-submit-btn:hover {
+  background-color: #005fa3;
+}
+.faq-navbar {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.nav-btn {
+  background-color: #eee;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+  background-color: #ddd;
+}
+
+.nav-btn.active {
+  background-color: #0078d7;
+  color: #fff;
+  font-weight: 600;
+}

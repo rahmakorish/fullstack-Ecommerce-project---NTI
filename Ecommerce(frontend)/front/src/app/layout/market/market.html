@@ -1,0 +1,43 @@
+<h1 class="page-title">🛍️ MarketPlace</h1>
+
+<!-- Search + Category selector -->
+<div class="market-controls">
+  <input
+    type="text"
+    placeholder="Search products..."
+    [(ngModel)]="searchQuery"
+    (ngModelChange)="applyFilters()"
+    class="search-input"
+  />
+
+  <select [(ngModel)]="selectedCategory" (change)="applyFilters()" class="category-select">
+    <option value="">All categories</option>
+    <option *ngFor="let c of categories" [value]="c">{{ c }}</option>
+  </select>
+</div>
+
+<div class="product-list">
+  <div class="product-card" *ngFor="let myProduct of filteredProducts; trackBy: trackById">
+    <!-- <h1>{{ myProduct.category }}</h1> -->
+    <img [src]="staticURL + myProduct.imgURL" alt="{{ myProduct.name }}" class="product-image" />
+
+    <div class="product-info">
+      <h2 class="product-name">{{ myProduct.name }}</h2>
+      <p class="product-description">{{ myProduct.description }}</p>
+      <p class="product-price">
+        {{ myProduct.price | currency : 'EGP' : 'symbol' }}
+      </p>
+
+      <div class="product-actions">
+        <button class="details-btn" [routerLink]="'/product/' + myProduct.slug">
+          View Details
+        </button>
+
+        <!-- Uncomment if cart functionality is ready -->
+        <!-- <button class="add-to-cart" (click)="addToCart(myProduct)">
+          Add to Cart
+        </button> -->
+      </div>
+    </div>
+  </div>
+</div>

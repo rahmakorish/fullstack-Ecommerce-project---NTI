@@ -1,0 +1,130 @@
+/* ========== Cart Page Styles ========== */
+
+.cart-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #387fdc;
+  margin: 2rem 0 1.5rem;
+  font-weight: 700;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.cart-container {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 1rem 2rem 2rem;
+  background-color: #f2f6fd;
+  border-radius: 1rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.cart-item-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cart-item-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item-header h3 {
+  margin: 0 0 0.5rem;
+  color: #040a16;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.cart-item-body p {
+  margin: 0.4rem 0;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.cart-summary {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background: #eaf1fc;
+  font-size: 1.05rem;
+  color: #040a16;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.cart-summary p {
+  margin: 0.6rem 0;
+}
+
+.checkout-btn {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.9rem 0;
+  background-color: #387fdc;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.checkout-btn:hover {
+  background-color: #2e6ab7;
+  transform: translateY(-2px);
+}
+
+/* ========== Empty Cart State ========== */
+
+.empty-cart {
+  text-align: center;
+  padding: 3rem 1rem;
+  font-family: 'Segoe UI', sans-serif;
+  color: #555;
+}
+
+.empty-cart p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.browse-btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background-color: #387fdc;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.browse-btn:hover {
+  background-color: #2e6ab7;
+}
+
+/* ========== Responsive Design ========== */
+
+@media (max-width: 600px) {
+  .cart-container {
+    padding: 1rem;
+  }
+
+  .cart-item-body p {
+    font-size: 0.9rem;
+  }
+
+  .checkout-btn {
+    font-size: 0.95rem;
+  }
+}
+.product-image {
+  width: 80%;
+  height: 180px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}

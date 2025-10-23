@@ -1,0 +1,29 @@
+<p class="account-title">My Account Info</p>
+
+@if (userData) {
+  <div *ngFor="let user of userData; let i = index" class="user-card">
+    <div class="user-details">
+      <p><strong>Name:</strong> {{ user.name }}</p>
+      <p><strong>Email:</strong> {{ user.email }}</p>
+      <p><strong>ID:</strong> {{ user._id }}</p>
+    </div>
+
+    @if (user.location) {
+      <div class="user-locations">
+        <p class="location-title"><strong>Locations:</strong></p>
+        <div *ngFor="let loc of user.location.location" class="location-item">
+          <p>📍 <span class="loc-label">{{ loc.label }}</span>: {{ loc.address }}</p>
+        </div>
+      </div>
+    }
+
+    <ng-template #noLocations>
+      <p class="no-locations">— No saved locations</p>
+    </ng-template>
+
+    <hr class="divider" />
+  </div>
+}
+
+<h3 class="orders-title">My Orders:</h3>
+<app-order></app-order>

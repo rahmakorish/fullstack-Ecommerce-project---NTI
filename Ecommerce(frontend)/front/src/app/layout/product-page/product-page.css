@@ -1,0 +1,95 @@
+/* General Layout */
+.product-details {
+  text-align: center;
+  padding: 2rem;
+}
+
+.product-details img {
+  width: 50%;              /* ✅ image takes 75% of the container width */
+  max-width: 600px;        /* optional: prevents it from getting too large */
+  height: auto;            /* keeps proportions */
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  margin: 1rem auto;       /* centers the image */
+}
+
+
+.product-details {
+  background-color: #fff;
+  padding: 2rem;
+  margin: 2rem auto;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  max-width: 800px;
+  text-align: center;
+}
+
+.product-details h2 {
+  color: #040a16;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.product-details p {
+  color: #333;
+  line-height: 1.6;
+  margin: 0.5rem 0;
+}
+
+.add-to-cart {
+  margin-top: 1.5rem;
+  background-color: #387fdc;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.8rem;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.add-to-cart:hover {
+  background-color: #2f6cc1;
+  transform: translateY(-2px);
+}
+
+/* Related Products Section */
+.related-products {
+  margin: 3rem auto;
+  padding: 1rem 2rem;
+  max-width: 1000px;
+}
+
+.related-products h3 {
+  color: #040a16;
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Related Product Cards */
+.related-item {
+  background-color: #f2f6fd;
+  padding: 1.2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-bottom: 1.2rem;
+}
+
+.related-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(56, 127, 220, 0.2);
+}
+
+.related-item h4 {
+  color: #387fdc;
+  margin-bottom: 0.5rem;
+}
+
+.related-item p {
+  color: #555;
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+}

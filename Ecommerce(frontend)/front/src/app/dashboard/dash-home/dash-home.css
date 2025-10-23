@@ -1,0 +1,17 @@
+.settings-container {
+  display: flex;
+  gap: 20px; /* space between components */
+  justify-content: space-around; /* or space-between / center */
+  align-items: flex-start; /* aligns them at the top */
+  flex-wrap: wrap; /* ensures responsiveness */
+  padding: 20px;
+}
+
+app-ordersettings,
+app-productsettings {
+  flex: 1 1 45%; /* each takes around half the width */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}

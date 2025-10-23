@@ -1,0 +1,17 @@
+<section class="faq-section" aria-labelledby="faq-title">
+  <h1 id="faq-title" class="faq-heading">Frequently Asked Questions</h1>
+
+  <div class="faq-list">
+      @for (item of question; track item._id) {
+        <article class="faq-item">
+          <h3 class="faq-question">
+            <span class="q-label">Q:</span> {{ item.question }}
+          </h3>
+          <p class="faq-answer">
+            <span class="a-label">A:</span> {{ item.answer }}
+          </p>
+        </article>
+      }
+  </div>
+</section>
+

@@ -1,0 +1,23 @@
+<section class="testimonial-section">
+  <h2 class="section-title">What Our Customers Say 💕</h2>
+
+  <ul class="testimonial-list">
+    <li class="testimonial-card" *ngFor="let testimonial of testimonials">
+
+        <button (click)="hidereview(testimonial._id)">hide this review</button>
+
+      <div class="testimonial-content">
+        <div class="user-avatar">
+          <!-- <img
+            [src]="testimonial.user.image || 'https://via.placeholder.com/80'"
+            alt="{{ testimonial.user.name }}"
+          /> -->
+        </div>
+        <div class="text-area">
+          <h3 class="user-name">{{ testimonial.user.name }}</h3>
+          <p class="testimonial-text">“{{ testimonial.text }}”</p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</section>
