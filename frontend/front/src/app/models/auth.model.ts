@@ -19,5 +19,9 @@ export interface ITokenDecode{
 export interface INewUser{
     name:string,
     email:string,
-    password:string
+    password:string,
+    location?:[ {
+    label: string; 
+    address: string; }]; 
+    image?: string;
 }

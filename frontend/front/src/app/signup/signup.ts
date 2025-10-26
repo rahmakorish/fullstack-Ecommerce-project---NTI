@@ -13,19 +13,34 @@ import { Route, Router } from '@angular/router';
   templateUrl: './signup.html',
   styleUrl: './signup.css'
 })
+    // location?:[ {
+    // label: string; 
+    // address: string; }]; 
+
 export class Signup{
 constructor(private _authServices:Auth, private _http:HttpClient, private router:Router){}
 signupform:FormGroup = new FormGroup({
   name:new FormControl(''),
   email: new FormControl(''),
-  password: new FormControl('')
+  password: new FormControl(''),
+  image: new FormControl(''),
+  location:new FormControl('')
 });
+locationform:FormGroup=new FormGroup({
+  label:new FormControl(''),
+  address: new FormControl('')
+})
+createLocation(){
+  console.log(this.locationform.value);
+}
 // ngOnInit(): void{
   signup(){
   let newUser:INewUser = {
   name : this.signupform.value.name,
   email : this.signupform.value.email,
-  password : this.signupform.value.password
+  password : this.signupform.value.password,
+  image: this.signupform.value.image,
+  location: this.locationform.value
   }
   //subscribe 3shan ysm3 new user fe db
   this._authServices.signup(newUser).subscribe({
@@ -43,6 +58,7 @@ signupform:FormGroup = new FormGroup({
   
 }
 // }
+
 
 }
 

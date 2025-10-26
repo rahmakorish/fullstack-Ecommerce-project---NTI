@@ -1,18 +1,79 @@
-body{
-   background-color: #24353F;
-   color:white
-}
-a{
-   color:white
-}
-
-section .item{
-   box-shadow:  30px 10px 10px 10px #0b0d0d;
+.signup-container {
+  width: 400px;
+  margin: 40px auto;
+  padding: 25px 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
 }
 
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
 
-#loginName::placeholder,#loginMail::placeholder, #loginPass::placeholder{
-background-color: transparent;
-color: rgb(131, 127, 127);
-opacity: 1;
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.form-group input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+  border-color: #007bff;
+}
+
+.location-section {
+  margin-top: 25px;
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.location-section h3 {
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.add-btn,
+.submit-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-btn:hover,
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+.add-btn {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.submit-btn {
+  width: 100%;
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 600;
 }
