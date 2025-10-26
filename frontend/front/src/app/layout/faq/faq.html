@@ -3,15 +3,19 @@
 
   <div class="faq-list">
       @for (item of question; track item._id) {
-        <article class="faq-item">
+        
+      }
+        <div *ngFor="let faq of question">
+          <article class="faq-item">
           <h3 class="faq-question">
-            <span class="q-label">Q:</span> {{ item.question }}
+            <span class="q-label">Q:</span> {{ faq.question }}
           </h3>
           <p class="faq-answer">
-            <span class="a-label">A:</span> {{ item.answer }}
+            <span class="a-label">A:</span> {{ faq.answer }}
           </p>
         </article>
-      }
-  </div>
+        </div>
+  <hr />
+</div>
 </section>
 

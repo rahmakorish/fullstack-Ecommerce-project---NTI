@@ -5,16 +5,8 @@ exports.createQuestion = async(req, res)=>{
     try{
     //get the data
     const {question, answer} = req.body;
-    //get the qs array
-    let existingQuestions = await FAQ.findOne();
-    //first question
-    if(!existingQuestions){
-        existingQuestions = new FAQ({myQuestion:[{question,answer}]})
-    } 
-    //insert it into existing Qs array
-    existingQuestions.myQuestion.push({question,answer})
-    await existingQuestions.save();
-    return res.status(200).json({message:'question created successfully', data:existingQuestions})}
+    const newQuestion = await FAQ.create({question, answer})
+    return res.status(200).json(newQuestion)}
     catch(err){
         res.status(500).json({message:`${err.message}`})
     }
@@ -24,8 +16,7 @@ exports.createQuestion = async(req, res)=>{
 exports.getQuestion = async(req,res)=>{
     try{
     const faqs = await FAQ.find();
-    const allQuestions = faqs.flatMap(faq => faq.myQuestion);
-    return res.status(200).json({ data: allQuestions})
+    return res.status(200).json(faqs)
 }
     catch(err){
     return res.status(500).json({message:`${err.message}`})

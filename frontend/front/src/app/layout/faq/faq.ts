@@ -8,13 +8,6 @@ import { CommonModule } from '@angular/common';
   selector: 'app-faq',
   imports: [CommonModule],
 templateUrl: './faq.html',
-// template: `  <div *ngFor="let item of this.question">
-//         <!-- <p>{{question[0].answer}}</p> -->
-//        <p>{{item.question}}</p>
-
-//         <p>{{item.answer}}</p>
-
-//     </div>`,
   styleUrl: './faq.css'
 })
 export class FAQ implements OnInit {
@@ -24,14 +17,9 @@ question!:IFAQ[];
 ngOnInit(): void {
   this.faqServices.getQustions().subscribe({
   next: (res: any) => {
-    this.question= res.data;
-    for (const item in this.question)
-    {
-      // console.log(this.question[item]);
+    this.question= res;
       this.cdr.detectChanges()
-    }
   }
-  })
-  }
+  })}
 
 }
