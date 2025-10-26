@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const signtoken = (user)=>{
     return jwt.sign(
         //SENT DATA TO FRONT END
-        {id:user._id, name:user.name, role:user.role},
+        {id:user._id, name:user.name, role:user.role, location:user.location, image:user.image},
         //KEY
         process.env.JWT_SECRET,
         //EXPIRY DATE OF TOKEN

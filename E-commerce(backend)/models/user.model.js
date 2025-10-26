@@ -1,18 +1,18 @@
 const mongoose = require('mongoose');
 const bcrypt = require("bcrypt")
 
-const locationSchema = new mongoose.Schema({
-    location:{ 
-        type:[{
-        label:{ type: String},
-        address: {type:String, required: true}
-    }], validate: {
-        validator: function(arr){
-        return this.role !== 'user' || arr.length> 0;
-        }, message: 'user must have at least 1 primary location'
-    }
-    },
-})
+// const locationSchema = new mongoose.Schema({
+//     location:{ 
+//         type:[{
+//         label:{ type: String},
+//         address: {type:String, required: true}
+//     }], validate: {
+//         validator: function(arr){
+//         return this.role !== 'user' || arr.length> 0;
+//         }, message: 'user must have at least 1 primary location'
+//     }
+//     },
+// })
 const userSchema = new mongoose.Schema({
     name:{
         type: String,
@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema({
     email:{
         type: String,
         required: true,
-        // match:'/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/'
+        match:'/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/'
     },
     password:{
         type: String,
@@ -32,9 +32,18 @@ const userSchema = new mongoose.Schema({
         enum:['admin', 'user'],
         default:'user'
     },
-    location:{ 
-        type:locationSchema
-    }, 
+    location: {
+    type: [{
+      label: String,
+      address: { type: String, required: true }
+    }],
+    validate: {
+      validator(arr) {
+        return this.role !== "user" || arr.length > 0;
+      },
+      message: "User must have at least one location."
+    }
+  }, 
     image:{
         type:String,
 

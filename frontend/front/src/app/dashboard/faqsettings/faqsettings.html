@@ -1,63 +1,61 @@
+<nav class="navbar">
+  <button 
+    class="nav-btn" 
+    [class.active]="view === 'display'" 
+    (click)="view = 'display'">
+    Display FAQs
+  </button>
+  <button 
+    class="nav-btn" 
+    [class.active]="view === 'create'" 
+    (click)="view = 'create'">
+    Create Question
+  </button>
+</nav>
+
 <section class="faq-section" aria-labelledby="faq-title">
   <h1 id="faq-title" class="faq-heading">Frequently Asked Questions</h1>
 
-  <!-- 🔹 Navbar Toggle Buttons -->
-  <nav class="faq-navbar">
-    <button 
-      class="nav-btn" 
-      [class.active]="viewMode === 'display'"
-      (click)="viewMode = 'display'"
-    >
-      Display Questions
-    </button>
+  <!-- Display FAQs -->
+  <div *ngIf="view === 'display'" class="faq-list">
+    <div *ngFor="let faq of question">
+      <article class="faq-item">
+        <h3 class="faq-question">
+          <span class="q-label">Q:</span> {{ faq.question }}
+        </h3>
+        <p class="faq-answer">
+          <span class="a-label">A:</span> {{ faq.answer }}
+        </p>
+      </article>
+    </div>
+    <hr />
+  </div>
 
-    <button 
-      class="nav-btn" 
-      [class.active]="viewMode === 'create'"
-      (click)="viewMode = 'create'"
-      
-    >
-      Create Question
-    </button>
-  </nav>
-
-  <!-- ✏️ Create Question Form -->
-  @if (viewMode === 'create') {
-    <form [formGroup]="questionForm" (ngSubmit)="addQuestion()" class="faq-form">
-      <label for="question">Question:</label>
+  <!-- Create Question Form -->
+  <div *ngIf="view === 'create'" class="create-form">
+    <h2>Add a New Question</h2>
+    <form (ngSubmit)="addQuestion()" [formGroup]="questionForm">
+      <label>
+        Question:
       <input 
         id="question" 
         type="text" 
         formControlName="question" 
         placeholder="Enter your question" 
         class="faq-input" 
-      />
+      />      </label>
 
-      <label for="answer">Answer:</label>
-      <textarea 
+      <label>
+        Answer:
+     <textarea 
         id="answer" 
         formControlName="answer" 
         placeholder="Enter the answer" 
         class="faq-textarea"
       ></textarea>
+          </label>
 
-      <button type="submit" class="faq-submit-btn">Add FAQ</button>
+      <button type="submit" class="submit-btn">Add FAQ</button>
     </form>
-  }
-
-  <!-- 💬 Display Questions -->
-  @if (viewMode === 'display') {
-    <div class="faq-list">
-      @for (item of question; track item._id) {
-        <article class="faq-item">
-          <h3 class="faq-question">
-            <span class="q-label">Q:</span> {{ item.question }}
-          </h3>
-          <p class="faq-answer">
-            <span class="a-label">A:</span> {{ item.answer }}
-          </p>
-        </article>
-      }
-    </div>
-  }
+  </div>
 </section>

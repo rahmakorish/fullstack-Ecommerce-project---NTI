@@ -1,19 +1,21 @@
 // 
-export interface ILocationItem {
-    label: string; 
-    address: string; 
-}
+// export interface ILocationItem {
+//     label: string; 
+//     address: string; 
+// }
 
-export interface ILocation {
-    location: ILocationItem[]; 
-}
+// export interface ILocation {
+//     location: ILocationItem[]; 
+// }
 
 export interface IUserData {
     _id?: string; 
     name: string;
     email: string;
     password: string;
-    location?: ILocation; 
+    location?:[ {
+    label: string; 
+    address: string; }]; 
     image?: string;
 }
 

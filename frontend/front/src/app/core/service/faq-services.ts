@@ -13,20 +13,22 @@ export class FaqServices {
 constructor( private _http:HttpClient, private authService:Auth){}
 apiURL = enviroment.apiURL+'FAQ';
 
-getQustions():Observable<IFAQ>{
-  return this._http.get<IFAQ>(this.apiURL)
+getQustions():Observable<IFAQ[]>{
+  console.log();
+  
+  return this._http.get<IFAQ[]>(this.apiURL)
 }
 
 createQuestion(question:IFAQ){
     const token = this.authService.getToken();
-if(token){  
+
+  if(token){  
     const headers = new HttpHeaders({Authorization: `Bearer ${token}`});
 return this._http.post(this.apiURL+'/createFAQ',question, {headers})
 }
 else{
-  return of({ } as IFAQ);
-}
-}
+  return null
+}}
 hidequestion(questionId:string):Observable<IFAQ>{
   const token = this.authService.getToken();
   if(token){  
