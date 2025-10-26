@@ -1,3 +1,3 @@
-vercel demo of frontend:
+<!-- vercel demo of frontend:
 
-https://rahmakorish-ecommerce-project-nti-f.vercel.app/home
+https://rahmakorish-ecommerce-project-nti-f.vercel.app/home -->
