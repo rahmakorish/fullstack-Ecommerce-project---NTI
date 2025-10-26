@@ -8,7 +8,7 @@ import { Order } from "../order/order";
 @Component({
   selector: 'app-account',
     standalone: true,          
-  imports: [CommonModule],
+  imports: [CommonModule, Order],
   templateUrl: './account.html',
   styleUrl: './account.css'
 })

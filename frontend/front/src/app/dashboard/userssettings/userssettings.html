@@ -6,7 +6,12 @@
         <h2>{{ user.name }}</h2>
         <!-- {{user.image}} -->
         <p>Email: {{ user.email }}</p>
-        <!-- <p>Location: {{ user.location?.location[0]?.label || 'N/A' }}</p> -->
+        @if(user.location && user.location.length){
+          <p><strong>Locations:</strong></p>
+      <div *ngFor="let loc of user.location">
+    <p>- {{ loc.label }}: {{ loc.address }}</p>
+        </div>
+        }
           <p> user ID: {{user._id}}</p>
       </li>
     </ul>

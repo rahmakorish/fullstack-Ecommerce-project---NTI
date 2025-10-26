@@ -1,29 +1,32 @@
-<!-- <p class="account-title">My Account Info</p>
+<p>My Account info</p>
 
-@if (userData) {
-  <div *ngFor="let user of userData; let i = index" class="user-card">
-    <div class="user-details">
-      <p><strong>Name:</strong> {{ user.name }}</p>
-      <p><strong>Email:</strong> {{ user.email }}</p>
-      <p><strong>ID:</strong> {{ user._id }}</p>
-    </div>
+@if(userData){
+  <div *ngFor="let user of userData; let i = index">
 
-    @if (user.location) {
-      <div class="user-locations">
-        <p class="location-title"><strong>Locations:</strong></p>
-        <div *ngFor="let loc of user.location.location" class="location-item">
-          <p>📍 <span class="loc-label">{{ loc.label }}</span>: {{ loc.address }}</p>
-        </div>
+    @if(user.image){
+      <div class="user-image">
+        <img [src]="user.image" alt="{{ user.name }}'s photo" />
       </div>
     }
 
-    <ng-template #noLocations>
-      <p class="no-locations">— No saved locations</p>
-    </ng-template>
+    <p><strong>Name:</strong> {{ user.name }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>ID:</strong> {{ user._id }}</p>
 
-    <hr class="divider" />
+    @if(user.location){
+      <p><strong>Registered Locations:</strong></p>
+      <div *ngFor="let loc of user.location">
+        <p><strong>- {{ loc.label }}</strong>: {{ loc.address }}</p>
+      </div>
+    } @else {
+      <ng-template #noLocations>
+        <p>— No saved locations</p>
+      </ng-template>
+    }
+
+    <hr />
   </div>
 }
 
-<h3 class="orders-title">My Orders:</h3>
-<app-order></app-order> -->
+<h3>My Orders:</h3>
+<app-order></app-order>

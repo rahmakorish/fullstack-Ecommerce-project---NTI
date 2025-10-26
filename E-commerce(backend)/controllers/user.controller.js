@@ -5,6 +5,7 @@ exports.createUser = (role)=>{
 return async(req, res, next)=>{
     try{
         const {name, email, password, location} = req.body;
+        const image = req.file ?req.file.filename:undefined;
         //check if role is correct
         if(!['admin','user'].includes(role)){
             //400:invalid data 
@@ -18,7 +19,7 @@ return async(req, res, next)=>{
         return res.status(400).json({ message: 'Duplicated email' });     
         }
         //create user
-        const user = await User.create({name, email, password,role, location});
+        const user = await User.create({name, email, password,role, location, image});
         return res.status(201).json({user})
 }
 catch(err){res.status(500).json({message:`${err.message}`})}
