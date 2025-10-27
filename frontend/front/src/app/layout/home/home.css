@@ -27,7 +27,7 @@
 
 .hero-image {
   border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); */
   max-width: 100%;
   height: auto;
 }
@@ -70,6 +70,50 @@
   flex: 1; /* Allows components to grow and shrink */
   min-width: 300px; /* Minimum width before wrapping */
   max-width: 48%; /* Max width to allow two items per row with gap */
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.hero-title {
+  animation: slideInLeft 1s ease-out forwards;
+}
+
+.hero-subtitle {
+  animation: slideInLeft 1s ease-out forwards 0.3s; /* Delayed start */
+}
+
+.btn-primary {
+  animation: fadeIn 1s ease-out forwards 0.6s; /* Delayed start */
+}
+
+.hero-image {
+  animation: slideInRight 1s ease-out forwards 0.9s; /* Delayed start */
 }
 
 /* Responsive adjustments */

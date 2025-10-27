@@ -8,7 +8,7 @@
           <img [src]="staticURL + product.imgURL" class="img-fluid rounded-start" alt="{{ product.name }}" style="height: 100%; object-fit: cover;">
         </div>
         <div class="col-md-7">
-          <div class="card-body">
+          <div class="card-body p-5 my-5">
             <h2 class="card-title" style="color: var(--text);">{{ product.name }}</h2>
             <p class="card-text lead text-muted">{{ product.description }}</p>
           @if (product.stock < 5) {
@@ -18,6 +18,8 @@
             <p class="card-text fs-4 fw-bold" style="color: var(--primary);">
               <strong>Price: </strong> <span style="color: var(--accent);">{{ product.price }} EGP</span>
             </p>
+            <!-- <p class="card-text lead text-muted">{{ product.quantity }}</p> -->
+
             <button class="btn btn-primary btn-lg me-2" (click)="addToCart(product)">Add to Cart</button>
             <p *ngIf="showMsg" class="text-success mt-3">{{ message }}</p>
           </div>
@@ -26,7 +28,7 @@
     </div>
 
     <div class="related-products mt-5">
-      <h3 class="mb-4" style="color: var(--primary);">Related Products</h3>
+      <h3 class="mb-2" style="color: var(--primary);">Related Products</h3>
       <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
         @for (myProduct of relatedProducts; track myProduct._id) {
           <div class="col">
