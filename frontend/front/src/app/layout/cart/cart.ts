@@ -28,44 +28,13 @@ staticURL = enviroment.staticURL;
 constructor(private _cartService: CartServices, private cdr:ChangeDetectorRef, private _http:HttpClient,
   private orderServices:OrderServices){}
 
-// myCart:ICart
-//  = {
-//   user:'oii'
-//   ,
-//   items:[
-//     {
-//       product: '671feb7d3a7f52d8a9a9d234', 
-//       quantity: 2
-//     }
-//   ]
-//   ,totalItemsPrice:779
-// }
-// addToCart() {
-// this._cartService.addToCart(this.myCart).subscribe({
-//   next:res=>{
-//         this.myCart = res;
-//         console.log(`cart: `+this.myCart);
-//         console.log(`response: `+res);
-        
-//         this.dcr.detectChanges()
-//       },
-//       error:err=>console.log(err.message)
-// })}
   ngOnInit(): void {
   this._cartService.displayCart()?.subscribe({
     next:cart=>{
-    // console.log(`cart data returned `+ cart.userCart.totalItemsPrice);
+    console.log(`cart data returned `+ cart.totalItemsPrice);
     this.myCart = cart
-    // console.log(this.myCart);
     
     this.cartItems = this.myCart.items
-    // this.item = this.cartItems;
-    // console.log(this.myCart.items[0].produ.name);
-    // console.log(this.cartItems);
-//     this.cartItems.forEach(item => {
-//   console.log('Product:', item);
-// });
-
     this.cdr.detectChanges()
     }
     ,
@@ -103,9 +72,7 @@ constructor(private _cartService: CartServices, private cdr:ChangeDetectorRef, p
       error: (err) => { console.error('Remove item failed:', err); }
     });
   }
-  // =====================
- //extract data from cartItem into orderItem
-  //extract data from myCart into myOrder to finalize it
+
 CartToOrder(cart: IUserCart): IPlaceOrderRequest {
   const items = (cart.items || []).map(item => {
 const productId = (item as any).product? (typeof (item as any).product === 'string'? (item as any).product

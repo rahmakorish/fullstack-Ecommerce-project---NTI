@@ -27,7 +27,8 @@ export class Productsettings implements OnInit{
   products!:IProduct[]
   // newProduct!:IProduct;
   productForm!: FormGroup;
-  categories = ['electronics', 'clothing', 'home goods', 'books', 'food & beverages'] 
+  categories = ['skin care', 'clothing', 'accessories', 'books', 'food & beverages']
+
 
   createEmptyProduct(): IProduct {
     return {

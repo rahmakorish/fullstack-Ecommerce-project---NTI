@@ -19,10 +19,10 @@
                   </div>
                   <div class="row align-items-center">
                     <div class="col-md-3">
-                      <img [src]="staticURL + item.imgURL" alt="{{ item.product }}" class="img-fluid rounded" style="height: 100px; object-fit: cover;" />
+                      <img [src]="staticURL + item.imgURL" alt="{{ item.product.name }}" class="img-fluid rounded" style="height: 100px; object-fit: cover;" />
                     </div>
                     <div class="col-md-9">
-                      <p class="mb-1"><strong>Product:</strong> {{ item._id }}</p>
+                      <p class="mb-1"><strong>Product:</strong> {{ item.product.name }}</p>
                       <p class="mb-0"><strong>Quantity:</strong> {{ item.quantity }}</p>
                     </div>
                   </div>

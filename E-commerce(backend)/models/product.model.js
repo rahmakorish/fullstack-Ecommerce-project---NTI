@@ -34,7 +34,7 @@ const productSchema = new mongoose.Schema({
     // ref:'category',
     type: String,
     required: true,
-    enum:['electronics', 'clothing', 'home goods', 'books', 'food & beverages']
+    enum:['skin care', 'clothing', 'accessories', 'books', 'food & beverages']
   },
   rating: {
     type: Number,

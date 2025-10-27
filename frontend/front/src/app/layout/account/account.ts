@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { IUserData } from '../../models/user.model';
 import { CommonModule } from '@angular/common';
 import { Order } from "../order/order";
+import { enviroment } from '../../../../enviroments/enviroment';
 
 @Component({
   selector: 'app-account',
@@ -17,6 +18,8 @@ constructor(private _accountServices:AccountService, private _http:HttpClient,
   private cdr:ChangeDetectorRef){}
 userData:IUserData[]=[];
 user!:IUserData;
+staticURL = enviroment.staticURL;
+
   ngOnInit(): void {
     //get user data
     this._accountServices.displayData()?.subscribe({

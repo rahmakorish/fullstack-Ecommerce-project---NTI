@@ -59,7 +59,7 @@ exports.getCart = async (req, res) => {
     //check if user already have a cart (not populated yet)
     let userCart = await Cart.findOne({ user: userId }).populate(
       "items.product",
-      "name price"
+      "name price imgURL"
     );
     // .populate('items.product', 'name price');
     if (!userCart) {

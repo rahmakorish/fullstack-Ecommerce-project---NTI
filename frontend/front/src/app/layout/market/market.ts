@@ -25,7 +25,7 @@ export class Market implements OnInit {
   filteredProducts: IProduct[] = [];
   cartData!: ICart;
   staticURL = enviroment.staticURL;
-  categories = ['electronics', 'clothing', 'home goods', 'books', 'food & beverages'];
+  categories = ['skin care', 'clothing', 'accessories', 'books', 'food & beverages']
   searchQuery = '';
   selectedCategory = '';
 

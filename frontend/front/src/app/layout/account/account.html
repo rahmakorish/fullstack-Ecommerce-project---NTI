@@ -8,9 +8,10 @@
           <div class="row">
             <div class="col-md-3 text-center">
               @if(user.image){
-                <img [src]="user.image" class="img-fluid rounded-circle mb-3" alt="{{ user.name }}'s photo" style="width: 120px; height: 120px; object-fit: cover;" />
+                <img [src]="staticURL + user.image" class="img-fluid rounded-circle mb-3" alt="{{ user.name }}'s photo" style="width: 120px; height: 120px; object-fit: cover;" />
               } @else {
                 <div class="bg-light rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 120px; height: 120px;">
+                    <img src="assets/default-user.png" alt="Default user" class="user-img" />
                   <i class="bi bi-person-fill fs-1 text-muted"></i>
                 </div>
               }
