@@ -1,46 +1,65 @@
-<h1 class="cart-title">🛒 My Cart</h1>
+<div class="container py-4">
+  <h1 class="text-center mb-4" style="color: var(--primary);">🛒 My Cart</h1>
 
-<section class="cart-container">
-  @if (myCart && cartItems) {
-  <div *ngFor="let item of cartItems; let i = index" class="cart-item-card">
-    @if(item.isremoved == false){
-    <div class="cart-item-header">
-      <h3>Item {{ i + 1 }}</h3>
-      @if(item._id) {<button type="button" (click)="removeItem(item.product._id)">
-        Remove Item</button
-      >}
-    </div>
-
-    <div class="cart-item-body">
-      <img [src]="staticURL + item.imgURL" alt="{{ item.product }}" class="product-image" />
-
-      <p><strong>Product:</strong> {{ item._id }}</p>
-      <p><strong>Quantity:</strong> {{ item.quantity }}</p>
-    </div>
+  <section>
+    @if (myCart && cartItems && cartItems.length > 0) {
+      <div class="row g-4">
+        <div class="col-lg-8">
+          @for (item of cartItems; track item._id; let i = $index) {
+            @if(item.isremoved == false){
+              <div class="card mb-3 shadow-sm">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h3 class="card-title mb-0" style="color: var(--text);">Item {{ i + 1 }}</h3>
+                    @if(item._id) {
+                      <button type="button" class="btn btn-danger btn-sm" (click)="removeItem(item.product._id)">
+                        Remove Item
+                      </button>
+                    }
+                  </div>
+                  <div class="row align-items-center">
+                    <div class="col-md-3">
+                      <img [src]="staticURL + item.imgURL" alt="{{ item.product }}" class="img-fluid rounded" style="height: 100px; object-fit: cover;" />
+                    </div>
+                    <div class="col-md-9">
+                      <p class="mb-1"><strong>Product:</strong> {{ item._id }}</p>
+                      <p class="mb-0"><strong>Quantity:</strong> {{ item.quantity }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            }
+          }
+        </div>
+        <div class="col-lg-4">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h3 class="card-title mb-3" style="color: var(--primary);">Cart Summary</h3>
+              <p class="card-text"><strong>Placed At:</strong> {{ myCart.createdAt | date : 'medium' }}</p>
+              <p class="card-text fs-5 fw-bold" style="color: var(--primary);">
+                <strong>Total Cart Price:</strong> <span style="color: var(--accent);">{{ myCart.totalItemsPrice | currency : 'EGP' }}</span>
+              </p>
+              <div class="d-grid gap-2 mt-4">
+                <button
+                  class="btn btn-success btn-lg"
+                  (click)="placeOrderFromCart()"
+                  [disabled]="!myCart || !cartItems.length"
+                >
+                  Place Order Now!
+                </button>
+                <a routerLink="/marketplace" class="btn btn-outline-secondary btn-lg">Browse More Products</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    } @else {
+      <div class="text-center py-5">
+        <p class="lead">Your cart is empty 🛍️</p>
+        <a routerLink="/marketplace" class="btn btn-primary btn-lg mt-3">Browse Products</a>
+      </div>
     }
+  </section>
 
-    <div class="cart-summary">
-      <p><strong>Placed At:</strong> {{ myCart.createdAt | date : 'medium' }}</p>
-      <p><strong>Total Cart Price:</strong> {{ myCart.totalItemsPrice | currency : 'EGP' }}</p>
-    </div>
-    <button
-      class="checkout-btn"
-      (click)="placeOrderFromCart()"
-      [disabled]="!myCart || !cartItems.length"
-    >
-      Place Order Now!
-    </button>
-  </div>
-
-  <button class="checkout-btn">
-    <a routerLink="/marketplace">Browse More Products</a>
-  </button>
-  } @else {
-  <div class="empty-cart">
-    <p>Your cart is empty 🛍️</p>
-    <a routerLink="/marketplace" class="browse-btn">Browse Products</a>
-  </div>
-  }
-</section>
-
-<app-order></app-order>
+  <app-order></app-order>
+</div>

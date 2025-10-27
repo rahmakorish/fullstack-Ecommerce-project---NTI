@@ -1,28 +1,50 @@
-<nav class="admin-navbar">
-  <div class="nav-left">
-    <a routerLink="home" routerLinkActive="activeLink">Home</a>
-    <a routerLink="productsettings" routerLinkActive="activeLink">Products</a>
-    <a routerLink="userssettings" routerLinkActive="activeLink">Users</a>
-    <a routerLink="ordersettings" routerLinkActive="activeLink">Orders</a>
-    <a routerLink="testimonialsettings" routerLinkActive="activeLink">Testimonials</a>
-    <a routerLink="faqsettings" routerLinkActive="activeLink">FAQs</a>
-    <a routerLink="category" routerLinkActive="activeLink">Categories</a>
-    <a routerLink="/home" routerLinkActive="activeLink">Go to Users Home</a>
-
-  </div>
-
-  <div class="nav-right">
-    @if(!isloggedin){
-      <a routerLink="signup" routerLinkActive="activeLink">Sign Up</a>
-      <a routerLink="login" routerLinkActive="activeLink">Login</a>
-    }
-    @else{
-      <span class="welcome">Welcome, {{ name }}</span>
-      <a (click)="logout()" class="logout-link">Logout</a>
-    }
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="home">Admin Dashboard</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#adminNavbar" aria-controls="adminNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="adminNavbar">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="home" routerLinkActive="activeLink">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="productsettings" routerLinkActive="activeLink">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="userssettings" routerLinkActive="activeLink">Users</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="ordersettings" routerLinkActive="activeLink">Orders</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="testimonialsettings" routerLinkActive="activeLink">Testimonials</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="faqsettings" routerLinkActive="activeLink">FAQs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="category" routerLinkActive="activeLink">Categories</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn btn-outline-primary ms-lg-3" routerLink="/home" routerLinkActive="activeLink">Go to Users Home</a>
+        </li>
+      </ul>
+      <div class="d-flex">
+        @if(!isloggedin){
+          <a routerLink="signup" routerLinkActive="activeLink" class="btn btn-outline-primary me-2">Sign Up</a>
+          <a routerLink="login" routerLinkActive="activeLink" class="btn btn-primary">Login</a>
+        }
+        @else{
+          <span class="navbar-text me-3">Welcome, {{ name }}</span>
+          <a (click)="logout()" class="btn btn-danger">Logout</a>
+        }
+      </div>
+    </div>
   </div>
 </nav>
 
-<hr />
-
-<router-outlet />
+<main class="container-fluid py-3">
+  <router-outlet />
+</main>

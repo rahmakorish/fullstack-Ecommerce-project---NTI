@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common'; // Import CommonModule
 import { Header } from '../layout/header/header';
 import { Auth } from '../core/service/auth-services';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [RouterOutlet, RouterLink],
+  imports: [RouterOutlet, RouterLink, CommonModule], // Add CommonModule here
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css'
 })
@@ -29,5 +30,3 @@ this._authServices.getAuthName().subscribe(data=>{
 
 logout(){this._authServices.logout();}
 }
-
-

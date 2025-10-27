@@ -1,32 +1,48 @@
-<p>My Account info</p>
+<div class="container py-4">
+  <h1 class="text-center mb-4" style="color: var(--primary);">My Account Info</h1>
 
-@if(userData){
-  <div *ngFor="let user of userData; let i = index">
+  @if(userData && userData.length > 0){
+    @for (user of userData; track user._id; let i = $index) {
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-3 text-center">
+              @if(user.image){
+                <img [src]="user.image" class="img-fluid rounded-circle mb-3" alt="{{ user.name }}'s photo" style="width: 120px; height: 120px; object-fit: cover;" />
+              } @else {
+                <div class="bg-light rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 120px; height: 120px;">
+                  <i class="bi bi-person-fill fs-1 text-muted"></i>
+                </div>
+              }
+              <h4 class="card-title" style="color: var(--text);">{{ user.name }}</h4>
+            </div>
+            <div class="col-md-9">
+              <p class="card-text"><strong>Email:</strong> {{ user.email }}</p>
+              <p class="card-text"><strong>ID:</strong> {{ user._id }}</p>
 
-    @if(user.image){
-      <div class="user-image">
-        <img [src]="user.image" alt="{{ user.name }}'s photo" />
+              @if(user.location && user.location.length > 0){
+                <h5 class="mt-4" style="color: var(--primary);">Registered Locations:</h5>
+                <ul class="list-group list-group-flush">
+                  @for (loc of user.location; track loc.label) {
+                    <li class="list-group-item">
+                      <strong>{{ loc.label }}</strong>: {{ loc.address }}
+                    </li>
+                  }
+                </ul>
+              } @else {
+                <p class="text-muted mt-4">— No saved locations</p>
+              }
+            </div>
+          </div>
+        </div>
       </div>
     }
+  } @else {
+    <div class="text-center py-5">
+      <p class="lead">No user data available.</p>
+    </div>
+  }
 
-    <p><strong>Name:</strong> {{ user.name }}</p>
-    <p><strong>Email:</strong> {{ user.email }}</p>
-    <p><strong>ID:</strong> {{ user._id }}</p>
-
-    @if(user.location){
-      <p><strong>Registered Locations:</strong></p>
-      <div *ngFor="let loc of user.location">
-        <p><strong>- {{ loc.label }}</strong>: {{ loc.address }}</p>
-      </div>
-    } @else {
-      <ng-template #noLocations>
-        <p>— No saved locations</p>
-      </ng-template>
-    }
-
-    <hr />
-  </div>
-}
-
-<h3>My Orders:</h3>
-<app-order></app-order>
+  <h3 class="mt-5 mb-3" style="color: var(--primary);">My Orders:</h3>
+  <app-order></app-order>
+</div>

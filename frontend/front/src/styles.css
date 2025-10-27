@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --text: #040a16;
+  --background: #f2f6fd;
+  --primary: #387fdc;
+  --secondary: #e97c7c;
+  --accent: #e4d25e;
+  --text-filter: 0;
+
+  /* Bootstrap custom variables */
+  --bs-body-bg: var(--background);
+  --bs-body-color: var(--text);
+  --bs-primary: var(--primary);
+  --bs-secondary: var(--secondary);
+  --bs-success: #198754; /* Default Bootstrap success */
+  --bs-info: #0dcaf0;    /* Default Bootstrap info */
+  --bs-warning: #ffc107; /* Default Bootstrap warning */
+  --bs-danger: #dc3545;  /* Default Bootstrap danger */
+  --bs-light: #f8f9fa;   /* Default Bootstrap light */
+  --bs-dark: #212529;    /* Default Bootstrap dark */
+}
+
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+}

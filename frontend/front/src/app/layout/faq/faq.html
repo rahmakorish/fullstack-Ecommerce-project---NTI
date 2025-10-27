@@ -1,21 +1,20 @@
-<section class="faq-section" aria-labelledby="faq-title">
-  <h1 id="faq-title" class="faq-heading">Frequently Asked Questions</h1>
+<div class="container py-4">
+  <h1 class="text-center mb-4" style="color: var(--primary);">Frequently Asked Questions</h1>
 
-  <div class="faq-list">
-      @for (item of question; track item._id) {
-        
-      }
-        <div *ngFor="let faq of question">
-          <article class="faq-item">
-          <h3 class="faq-question">
-            <span class="q-label">Q:</span> {{ faq.question }}
-          </h3>
-          <p class="faq-answer">
-            <span class="a-label">A:</span> {{ faq.answer }}
-          </p>
-        </article>
+  <div class="accordion" id="faqAccordion">
+    @for (faq of question; track faq._id) {
+      <div class="accordion-item mb-3 shadow-sm">
+        <h2 class="accordion-header" id="heading{{ faq._id }}">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + faq._id" aria-expanded="false" [attr.aria-controls]="'collapse' + faq._id" style="color: var(--text); background-color: var(--background);">
+            Q: {{ faq.question }}
+          </button>
+        </h2>
+        <div [id]="'collapse' + faq._id" class="accordion-collapse collapse" [attr.aria-labelledby]="'heading' + faq._id" data-bs-parent="#faqAccordion">
+          <div class="accordion-body" style="background-color: var(--background); color: var(--text);">
+            A: {{ faq.answer }}
+          </div>
         </div>
-  <hr />
+      </div>
+    }
+  </div>
 </div>
-</section>
-

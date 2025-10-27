@@ -1,60 +1,69 @@
-<div class="categories-wrap" *ngIf="categories?.length; else empty">
-  <div class="grid">
+<div class="container py-4">
+  <h1 class="text-center mb-4" style="color: var(--primary);">Category Management</h1>
 
- <!-- Add New Category Card -->
-    <article class="card add-card" (click)="toggleForm(true)">
-      <div class="add-content">
-        <span class="plus">+</span>
-        <p>Add New Category</p>
-      </div>
-    </article>
+  @if(categories && categories.length > 0){
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
 
-    <!-- Form (shown when showForm is true) -->
-    <article class="card form-card" *ngIf="showForm">
-      <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
-        <div class="card-header">
-          <h3>Create Category</h3>
+      <!-- Add New Category Card -->
+      <div class="col">
+        <div class="card h-100 border-primary text-center d-flex align-items-center justify-content-center" (click)="toggleForm(true)" style="cursor: pointer; background-color: var(--background);">
+          <div class="card-body">
+            <span class="display-4 text-primary">+</span>
+            <p class="card-text fs-5" style="color: var(--text);">Add New Category</p>
+          </div>
         </div>
-        <div class="card-body">
-          <label>
-            Category
-            <input type="text" formControlName="category" placeholder="e.g. men" />
-          </label>
-          <label>
-            Subcategory
-            <input type="text" formControlName="subcategory" placeholder="e.g. clothing" />
-          </label>
+      </div>
+
+      <!-- Form (shown when showForm is true) -->
+      @if(showForm){
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <div class="card-header" style="background-color: var(--primary); color: var(--background);">
+              <h3 class="card-title mb-0">Create Category</h3>
+            </div>
+            <div class="card-body">
+              <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                  <label for="category" class="form-label">Category</label>
+                  <input type="text" id="category" formControlName="category" class="form-control" placeholder="e.g. men" />
+                </div>
+                <div class="mb-3">
+                  <label for="subcategory" class="form-label">Subcategory</label>
+                  <input type="text" id="subcategory" formControlName="subcategory" class="form-control" placeholder="e.g. clothing" />
+                </div>
+                <div class="d-flex justify-content-end">
+                  <button class="btn btn-primary me-2" type="submit">Create</button>
+                  <button class="btn btn-outline-secondary" type="button" (click)="toggleForm(false)">Cancel</button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
-        <div class="card-footer">
-          <button class="btn" type="submit">Create</button>
-          <button class="btn btn-outline" type="button" (click)="toggleForm(false)">Cancel</button>
+      }
+
+      <!-- Loop over existing categories -->
+      @for (cat of categories; track cat.id) {
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <div class="card-header" style="background-color: var(--background); color: var(--text);">
+              <h3 class="card-title mb-0">{{ cat.category | titlecase }}</h3>
+              <small class="text-muted">ID: {{ cat.id }}</small>
+            </div>
+            <div class="card-body">
+              <p class="card-text"><strong>Subcategory:</strong> {{ cat.subcategory }}</p>
+            </div>
+            <div class="card-footer d-flex justify-content-end">
+              <!-- <button class="btn btn-outline-info btn-sm me-2" (click)="view(cat)">View</button>
+              <button class="btn btn-warning btn-sm" (click)="edit(cat)">Edit</button> -->
+            </div>
+          </div>
         </div>
-      </form>
-    </article>
-
-    <!-- Loop over existing categories -->
-    <article class="card" *ngFor="let cat of categories">
-      <div class="card-header">
-        <h3 class="category">{{ cat.category | titlecase }}</h3>
-        <span class="id">ID: {{ cat.id }}</span>
-      </div>
-
-      <div class="card-body">
-        <p><strong>Subcategory:</strong> {{ cat.subcategory }}</p>
-      </div>
-
-      <div class="card-footer">
-        <!-- <button class="btn btn-outline" (click)="view(cat)">View</button>
-        <button class="btn" (click)="edit(cat)">Edit</button> -->
-      </div>
-    </article>
-
-  </div>
+      }
+    </div>
+  } @else {
+    <div class="text-center py-5">
+      <p class="lead">No categories found.</p>
+      <button class="btn btn-primary btn-lg mt-3" (click)="toggleForm(true)">+ Add New Category</button>
+    </div>
+  }
 </div>
-
-<ng-template #empty>
-  <div class="empty-state">
-    <p>No categories found.</p>
-    <button class="btn" (click)="onSubmit()">+ Add New Category</button>
-  </div>
-</ng-template>
