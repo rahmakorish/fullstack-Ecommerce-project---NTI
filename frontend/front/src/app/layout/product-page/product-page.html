@@ -11,8 +11,12 @@
           <div class="card-body">
             <h2 class="card-title" style="color: var(--text);">{{ product.name }}</h2>
             <p class="card-text lead text-muted">{{ product.description }}</p>
+          @if (product.stock < 5) {
+            <p class="card-text lead text-muted">Last {{ product.stock }} items</p>
+            <p>selling out fast!</p>
+        }
             <p class="card-text fs-4 fw-bold" style="color: var(--primary);">
-              <strong>Price:</strong> <span style="color: var(--accent);">{{ product.price }} EGP</span>
+              <strong>Price: </strong> <span style="color: var(--accent);">{{ product.price }} EGP</span>
             </p>
             <button class="btn btn-primary btn-lg me-2" (click)="addToCart(product)">Add to Cart</button>
             <p *ngIf="showMsg" class="text-success mt-3">{{ message }}</p>
@@ -28,13 +32,16 @@
           <div class="col">
             <div class="card h-100 shadow-sm">
               <!-- Assuming staticURL is available in this component's TS -->
-              <!-- <img [src]="staticURL + myProduct.imgURL" class="card-img-top" alt="{{ myProduct.name }}" style="height: 180px; object-fit: cover;"> -->
+              <img [src]="staticURL + myProduct.imgURL" class="card-img-top" alt="{{ myProduct.name }}" style="height: 180px; object-fit: cover;">
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title" style="color: var(--text);">{{ myProduct.name }}</h5>
                 <p class="card-text text-muted flex-grow-1">{{ myProduct.description }}</p>
                 <p class="card-text fs-5 fw-bold" style="color: var(--primary);">
-                  <strong>Price:</strong> <span style="color: var(--accent);">{{ myProduct.price }} EGP</span>
+                  <strong>Price: </strong> <span style="color: var(--accent);">{{ myProduct.price }} EGP</span>
                 </p>
+                <button class="btn btn-primary w-100" [routerLink]="'/product/' + myProduct.slug">
+              View Product
+            </button>
                 <!-- Optional: You can reuse a product card component -->
                 <!-- <app-product [product]="myProduct"></app-product> -->
               </div>

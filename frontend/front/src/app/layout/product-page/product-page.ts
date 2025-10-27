@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { IProduct } from '../../models/product.model';
 import { Product } from '../../core/service/product-services';
 import { CommonModule } from '@angular/common';
@@ -9,7 +9,7 @@ import { enviroment } from '../../../../enviroments/enviroment';
 
 @Component({
   selector: 'app-product-page',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './product-page.html',
 styleUrls: ['./product-page.css']
 })
