@@ -6,7 +6,7 @@ import { Router, RouterLink } from '@angular/router';
   selector: 'app-product',
   imports: [],
   templateUrl: './product.html',
-  styleUrl: './product.css'
+  styleUrls: ['./product.css']
 })
 export class Product {
 @Input() products!:IProduct;

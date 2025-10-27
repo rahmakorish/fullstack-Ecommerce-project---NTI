@@ -2,18 +2,17 @@
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 20px;
-  background-color: #222;
-  padding: 15px 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  background-color: #ffffff; /* Lighter background */
+  padding: 10px 20px; /* Adjusted padding */
+  border-radius: 8px; /* Softer border-radius */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Softer shadow */
   flex-wrap: wrap; /* Makes it responsive */
 }
 
 /* Links */
 .navbar a {
-  color: #ddd;
+  color: #333; /* Darker text for contrast */
   text-decoration: none;
   font-size: 1rem;
   font-weight: 500;
@@ -23,21 +22,21 @@
 
 /* Hover effect */
 .navbar a:hover {
-  color: #00bcd4;
+  color: #007bff; /* New accent color */
   transform: translateY(-2px);
 }
 
 /* Active link style */
 .activeLink {
-  color: #00bcd4;
+  color: #007bff; /* New accent color */
   font-weight: 600;
-  border-bottom: 2px solid #00bcd4;
+  border-bottom: 2px solid #007bff; /* New accent color */
   padding-bottom: 3px;
 }
 
 /* Welcome text */
 .welcome {
-  color: #fff;
+  color: #333; /* Darker text for contrast */
   font-weight: 600;
   margin-left: 15px;
 }

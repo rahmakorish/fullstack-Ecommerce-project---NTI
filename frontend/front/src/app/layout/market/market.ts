@@ -14,7 +14,7 @@ import { enviroment } from '../../../../enviroments/enviroment';
   selector: 'app-market',
   imports: [CommonModule, RouterLink, FormsModule], 
   templateUrl: './market.html',
-  styleUrl: './market.css'
+  styleUrls: ['./market.css']
 })
 export class Market implements OnInit {
   constructor(private _productService: Product,private dcr: ChangeDetectorRef,private http: HttpClient,
