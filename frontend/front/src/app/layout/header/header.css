@@ -12,7 +12,7 @@
 
 /* Links */
 .navbar a {
-  color: #333; /* Darker text for contrast */
+  color: #e97c7c; /* Darker text for contrast */
   text-decoration: none;
   font-size: 1rem;
   font-weight: 500;
@@ -22,15 +22,15 @@
 
 /* Hover effect */
 .navbar a:hover {
-  color: #007bff; /* New accent color */
+  color:#e97c7c; /* New accent color */
   transform: translateY(-2px);
 }
 
 /* Active link style */
 .activeLink {
-  color: #007bff; /* New accent color */
+  color:#e97c7c; /* New accent color */
   font-weight: 600;
-  border-bottom: 2px solid #007bff; /* New accent color */
+  border-bottom: 2px solid #e97c7c; /* New accent color */
   padding-bottom: 3px;
 }
 

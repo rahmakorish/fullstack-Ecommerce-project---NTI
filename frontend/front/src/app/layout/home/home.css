@@ -15,12 +15,12 @@
   font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 20px;
-  color: var(--text);
+  color: #e97c7c;
 }
 
 .hero-subtitle {
   font-size: 1.25rem;
-  color: var(--text);
+  color: #ffc107;
   margin-bottom: 30px;
   line-height: 1.6;
 }
@@ -55,4 +55,32 @@
   background: radial-gradient(circle, rgba(56,127,220,0.2) 0%, rgba(56,127,220,0) 70%);
   border-radius: 50%;
   z-index: 0;
+}
+
+.faq-testimonial-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap to the next line on smaller screens */
+  gap: 20px; /* Space between the components */
+  justify-content: center; /* Center items horizontally */
+  align-items: flex-start; /* Align items to the start of the cross axis */
+}
+
+.faq-testimonial-container app-faq,
+.faq-testimonial-container app-testimonial {
+  flex: 1; /* Allows components to grow and shrink */
+  min-width: 300px; /* Minimum width before wrapping */
+  max-width: 48%; /* Max width to allow two items per row with gap */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .faq-testimonial-container {
+    flex-direction: column; /* Stack items vertically on small screens */
+    align-items: center; /* Center items when stacked */
+  }
+
+  .faq-testimonial-container app-faq,
+  .faq-testimonial-container app-testimonial {
+    max-width: 100%; /* Full width on small screens */
+  }
 }
