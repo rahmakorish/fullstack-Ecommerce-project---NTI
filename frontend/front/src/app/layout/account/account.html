@@ -5,18 +5,26 @@
     @for (user of userData; track user._id; let i = $index) {
       <div class="card mb-4 shadow-sm">
         <div class="card-body">
-          <div class="row">
+          <div class="row align-items-center">
             <div class="col-md-3 text-center">
+
               @if(user.image){
-                <img [src]="staticURL + user.image" class="img-fluid rounded-circle mb-3" alt="{{ user.name }}'s photo" style="width: 120px; height: 120px; object-fit: cover;" />
+                <div class="rounded-circle overflow-hidden border border-3 border-primary d-inline-block mb-3" style="width: 120px; height: 120px;">
+                  <img [src]="staticURL + user.image" alt="{{ user.name }}'s photo" 
+                       class="img-fluid w-100 h-100" 
+                       style="object-fit: cover;" />
+                </div>
               } @else {
-                <div class="bg-light rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 120px; height: 120px;">
-                    <img src="assets/default-user.png" alt="Default user" class="user-img" />
+                <div class="rounded-circle overflow-hidden border border-3 border-secondary d-flex align-items-center justify-content-center mb-3" 
+                     style="width: 120px; height: 120px; background-color: #f8f9fa;">
+                     <img src="default-user-img.jpg" alt="Default user" class="user-img" />
                   <i class="bi bi-person-fill fs-1 text-muted"></i>
                 </div>
               }
-              <h4 class="card-title" style="color: var(--text);">{{ user.name }}</h4>
+
+              <h4 class="card-title mt-2" style="color: var(--text);">{{ user.name }}</h4>
             </div>
+
             <div class="col-md-9">
               <p class="card-text"><strong>Email:</strong> {{ user.email }}</p>
               <p class="card-text"><strong>ID:</strong> {{ user._id }}</p>
