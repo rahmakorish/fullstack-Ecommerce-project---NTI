@@ -28,12 +28,12 @@
           <a class="nav-link" routerLink="category" routerLinkActive="activeLink">Categories</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link btn btn-outline-primary ms-lg-3" routerLink="/home" routerLinkActive="activeLink">Go to Users Home</a>
+          <a class="nav-link btn ms-lg-3" routerLink="/home" routerLinkActive="activeLink">Go to Users Home</a>
         </li>
       </ul>
       <div class="d-flex">
         @if(!isloggedin){
-          <a routerLink="signup" routerLinkActive="activeLink" class="btn btn-outline-primary me-2">Sign Up</a>
+          <a routerLink="signup" routerLinkActive="activeLink" class="btn me-2">Sign Up</a>
           <a routerLink="login" routerLinkActive="activeLink" class="btn btn-primary">Login</a>
         }
         @else{
