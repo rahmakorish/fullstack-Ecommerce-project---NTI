@@ -25,15 +25,6 @@ relatedProducts!:IProduct[];
 cartData!:ICart;
 showMsg = false;
 message = '';
-//add to cart function :3
-//convert IProduct data into ICart data :v :v :v 
-// export interface ICart{
-//     items:{
-//     productId:string,  iproduct : //     _id:string,
-//     quantity:1
-// }[];
-    
-// }
 
 addToCart(myProduct:IProduct) { 
 // console.log(myProduct);
@@ -59,42 +50,35 @@ items:[{
   })
 }
 ngOnInit(): void {
-  // this.slug = this._activatedRoute.snapshot.paramMap.get('slug');
 
 this._activatedRoute.paramMap.subscribe(params=>
 {
 this.slug = params.get('slug');
-    // console.log(this.slug);
-
   if(this.slug){
-    // console.log(this.slug);
-    
-this._productService.getProductBySlug(this.slug).subscribe({
-  next:res=> {
-    // console.log('response:', res.data);
-    this.product= res.data
-this._productService.getRaltedProducts(this.product.slug).subscribe(
-  {
-    next:res=> {
-          // console.log('response:', res.data);
-
-      this.relatedProducts=res.data
-      // console.log(`related products: `+this.relatedProducts);
-      this.cdr.detectChanges()
-
-    },
-    error:err=>console.log(err.message)
-    
-  }
-)
-this.cdr.detectChanges()
-
-  },
-  error:err=> console.log(err.message)
-  
-})
+    this.loadProductData(this.slug);
   }
   else{
 this._router.navigate(['/marketplace'])
   }
-})}}
+})
+}
+
+loadProductData(slug: string): void {
+    this._productService.getProductBySlug(slug).subscribe({
+      next:res=> {
+        this.product= res.data;
+        this._productService.getRaltedProducts(this.product.slug).subscribe(
+          {
+            next:res=> {
+              this.relatedProducts=res.data;
+              this.cdr.detectChanges();
+            },
+            error:err=>console.log(err.message)
+          }
+        );
+        this.cdr.detectChanges();
+      },
+      error:err=> console.log(err.message)
+    });
+  }
+}
