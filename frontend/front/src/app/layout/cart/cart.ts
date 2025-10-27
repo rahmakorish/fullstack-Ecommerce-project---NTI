@@ -65,9 +65,14 @@ constructor(private _cartService: CartServices, private cdr:ChangeDetectorRef, p
         // update cart to reflects change
         this.myCart = cart;
         console.log('my new cart after item removal: '+ this.myCart.items);
-        this._cartService.displayCart()
-        // this.cartItems = cart.items || [];
-        this.cdr.detectChanges();
+        this._cartService.displayCart()?.subscribe({
+          next: updatedCart => {
+            this.myCart = updatedCart;
+            this.cartItems = updatedCart.items || [];
+            this.cdr.detectChanges();
+          },
+          error: err => console.error('Failed to refresh cart after item removal:', err.message)
+        });
       },
       error: (err) => { console.error('Remove item failed:', err); }
     });
