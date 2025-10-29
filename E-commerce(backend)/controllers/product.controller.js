@@ -33,22 +33,23 @@ try {
 exports.getProductsCategory = async(req,res)=>{
     try{const searchCategory = req.params.category;
     const labelledProducts = await Product.find({category:searchCategory})
-    return res.status(200).json(labelledProducts)
+    return res.status(200).json({message:'products by category',data:labelledProducts})
 }
 catch(err){return res.status(500).json({message:`${err.message}`})}
 
 }
-//get simillar products
+//get simillar products (all products in this category)
 exports.getRelatedProducts = async(req,res)=>{
     try{
         const productSlug = req.params.slug;
-        const product = await Product.findOne({productSlug})
-// category:product.category,
-        // console.log(productSlug);
-        const relatedProducts = await Product.find({slug:{$ne:product}})
-        // console.log(relatedProducts);
+        const product = await Product.findOne({slug:productSlug})
+        if (!product) {
+        return res.status(404).json({ message: "Product not found" });
+    }
+        const relatedProducts = await Product.find({category: product.category, slug:{$ne:product.slug}})
+        // console.log(product.category);
         
-        return res.status(200).json({data:relatedProducts})
+        return res.status(200).json({message:'products returned successfully',data:relatedProducts})
     }
     catch(err){ return res.status(500).json({message:`${err.message}`})}
 }

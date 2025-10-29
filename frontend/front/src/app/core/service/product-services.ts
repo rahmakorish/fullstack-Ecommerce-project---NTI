@@ -23,8 +23,9 @@ export class Product {
   }
 
   getRaltedProducts(slug:string):Observable<IProductsResponse>{
-    return this._http.get<IProductsResponse>(this.apiURL+`/related/'${slug}`)
+    return this._http.get<IProductsResponse>(this.apiURL+`/related/${slug}`)
   }
+
   //admin creates new product in product form
   createProduct(productFormData: FormData):Observable<IProduct>{
     const token = this.authService.getToken();
