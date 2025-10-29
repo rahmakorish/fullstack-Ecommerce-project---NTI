@@ -31,13 +31,14 @@
             <p class="card-price">
               {{ myProduct.price | currency : 'EGP' : 'symbol' }}
             </p>
-            <button class="btn btn-primary w-100" [routerLink]="'/product/' + myProduct.slug">
-              View Product
-            </button>
-            <!-- Uncomment if cart functionality is ready -->
-            <!-- <button class="btn btn-primary mt-2" (click)="addToCart(myProduct)">
-              Add to Cart
-            </button> -->
+            <div class="d-flex justify-content-between mt-2">
+              <button class="btn btn-primary btn-lg w-50 me-2" [routerLink]="'/product/' + myProduct.slug">
+                View Product
+              </button>
+              <button class="btn btn-primary btn-lg w-50" (click)="addToCart(myProduct)">
+                Add to Cart
+              </button>
+            </div>
           </div>
         </div>
       </div>

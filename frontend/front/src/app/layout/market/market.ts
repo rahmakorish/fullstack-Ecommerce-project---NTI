@@ -20,7 +20,8 @@ export class Market implements OnInit {
   constructor(private _productService: Product,private dcr: ChangeDetectorRef,private http: HttpClient,
     private _cartService: CartServices,
   ) {}
-
+showMsg = false;
+message = '';
   products!: IProduct[];
   filteredProducts: IProduct[] = [];
   cartData!: ICart;
@@ -29,6 +30,29 @@ export class Market implements OnInit {
   searchQuery = '';
   selectedCategory = '';
 
+
+  addToCart(myProduct:IProduct) { 
+// console.log(myProduct);
+this.cartData = {
+items:[{
+    productId: myProduct._id,
+    quantity:1
+}]
+}
+// console.log(this.cartData);
+  this._cartService.addToCart(this.cartData)?.subscribe({
+    next:res=>{
+      console.log('Cart updated successfully:', res); 
+        this.message = `item successfully added to cart!`;
+        this.showMsg = true;
+
+        setTimeout(() => this.showMsg = false, 1000);
+              this.dcr.detectChanges()
+
+      },
+    error:err=>console.log(err.message)
+  })
+}
   ngOnInit(): void {
     this._productService.getProducts().subscribe({
       next: res => {

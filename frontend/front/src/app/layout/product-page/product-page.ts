@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { ICart } from '../../models/cart.model';
 import { CartServices } from '../../core/service/cart-services';
 import { enviroment } from '../../../../enviroments/enviroment';
+import { Auth } from '../../core/service/auth-services';
 
 @Component({
   selector: 'app-product-page',
@@ -17,7 +18,7 @@ export class ProductPage implements OnInit {
 constructor(private _activatedRoute:ActivatedRoute,
 private _productService:Product,
 private _router:Router, private cdr:ChangeDetectorRef,
-private cartService:CartServices){}
+private cartService:CartServices,private _authServices:Auth){}
 slug!:string | null;
 product!:IProduct;
 staticURL = enviroment.staticURL;
@@ -25,20 +26,19 @@ relatedProducts!:IProduct[];
 cartData!:ICart;
 showMsg = false;
 message = '';
+isloggedin = false;
 
 addToCart(myProduct:IProduct) { 
-// console.log(myProduct);
 this.cartData = {
 items:[{
     productId: myProduct._id,
     quantity:1
 }]
 }
-// console.log(this.cartData);
   this.cartService.addToCart(this.cartData)?.subscribe({
     next:res=>{
       console.log('Cart updated successfully:', res); 
-        this.message = `item successfully added to cart!`;
+        this.message = `item added to cart!`;
         this.showMsg = true;
 
         setTimeout(() => this.showMsg = false, 1000);
@@ -50,7 +50,16 @@ items:[{
   })
 }
 ngOnInit(): void {
+this._authServices.getAuthName().subscribe(data=>{
+  if(data){
+    this.isloggedin= true;
+  }
+  else{
+    this.isloggedin= false;
+    this.message = `signup!`;
 
+  }
+})
 this._activatedRoute.paramMap.subscribe(params=>
 {
 this.slug = params.get('slug');

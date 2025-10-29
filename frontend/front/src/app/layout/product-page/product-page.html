@@ -12,8 +12,7 @@
             <h2 class="card-title" style="color: var(--text);">{{ product.name }}</h2>
             <p class="card-text lead text-muted">{{ product.description }}</p>
           @if (product.stock < 5) {
-            <p class="card-text lead text-muted">Last {{ product.stock }} items</p>
-            <p>selling out fast!</p>
+            <p class="card-text lead text-muted">Last {{ product.stock }} items, selling out fast!</p>
         }
             <p class="card-text fs-4 fw-bold" style="color: var(--primary);">
               <strong>Price: </strong> <span style="color: var(--accent);">{{ product.price }} EGP</span>
@@ -21,7 +20,10 @@
             <!-- <p class="card-text lead text-muted">{{ product.quantity }}</p> -->
 
             <button class="btn btn-primary btn-lg me-2" (click)="addToCart(product)">Add to Cart</button>
-            <p *ngIf="showMsg" class="text-success mt-3">{{ message }}</p>
+            @if(!isloggedin){<p *ngIf="showMsg" class="text-success mt-3">{{ message }}</p>
+}
+            @else {<p *ngIf="showMsg" class="text-success mt-3">{{ message }}</p>
+}
           </div>
         </div>
       </div>
