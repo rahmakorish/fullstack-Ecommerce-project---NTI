@@ -4,7 +4,7 @@ A modern, feature-rich e-commerce platform built with Angular and Node.js, offer
 
 ## 🌐 Live Demo
 
-**Frontend:** [https://rahmakorish-ecommerce-project-nti-f.vercel.app/home](https://rahmakorish-ecommerce-project-nti-f.vercel.app/home)
+**Frontend:** [https://rahmakorish-ecommerce-project-nti-f.vercel.app/home]([https://rahmakorish-ecommerce-project-nti-f.vercel.app/home](https://ecommerce-project-nti-frontend-2wtw.vercel.app/home))
 
 ## ✨ Features
 
