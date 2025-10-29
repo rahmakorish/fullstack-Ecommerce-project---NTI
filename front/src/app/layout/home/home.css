@@ -6,6 +6,7 @@
   overflow: hidden;
 }
 
+
 .hero-section .container {
   position: relative;
   z-index: 1;
@@ -169,4 +170,9 @@
   .faq-testimonial-container app-testimonial {
     max-width: 100%; /* Full width on small screens */
   }
+}
+
+section{
+background: linear-gradient(135deg, #f8f7fb 0%, #ffffff 100%);
+
 }
