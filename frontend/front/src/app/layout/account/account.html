@@ -7,9 +7,9 @@
         <div class="card-body">
           <div class="row align-items-center">
             <div class="col-md-3 text-center">
-
+              <!-- <h4 class="card-title mt-2" style="color: var(--text);">welcome, {{ user.name }}</h4> -->
               @if(user.image){
-                <div class="rounded-circle overflow-hidden border border-3 border-primary d-inline-block mb-3" style="width: 120px; height: 120px;">
+                <div class="rounded-circle overflow-hidden border border-3 border-primary d-inline-block mb-3 mx-4" style="width: 120px; height: 120px;">
                   <img [src]="staticURL + user.image" alt="{{ user.name }}'s photo" 
                        class="img-fluid w-100 h-100" 
                        style="object-fit: cover;" />
@@ -22,7 +22,6 @@
                 </div>
               }
 
-              <h4 class="card-title mt-2" style="color: var(--text);">{{ user.name }}</h4>
             </div>
 
             <div class="col-md-9">
