@@ -44,17 +44,6 @@ constructor(private _cartService: CartServices, private cdr:ChangeDetectorRef, p
   
 }
 
-  // getProductPrice(item: ICartItem) {
-  //   return item.product.price 
-  // }
-  // getTotalPrice(item: ICartItem){
-  //   console.log(item.product.price);
-    
-  //   if(item.product.price)
-  //   {return (item.product.price  * item.quantity);}
-  //   else{return 0}
-  // }
-
 
     removeItem(productId: string): void {
     console.log(productId);
