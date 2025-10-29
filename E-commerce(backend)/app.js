@@ -12,7 +12,10 @@ connectDB()
 const corsMiddleWare = require('./middlwares/cors.middleware')
 app.use(corsMiddleWare)
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-
+app.use(express.static(path.join(__dirname, 'public')));
+app.get('/',(req,res)=>{
+    res.sendFile(path.join(__dirname,'public','index.html'))
+})
 app.use(express.json());
 //login
 app.use("/api/auth", require("./routes/auth.route"));
