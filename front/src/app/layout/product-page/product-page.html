@@ -19,7 +19,12 @@
               <strong>Price: </strong> <span style="color: var(--accent);">{{ product.price }} EGP</span>
             </p>
             
-            <!-- <p class="card-text lead text-muted">{{ product.quantity }}</p> -->
+            <div class="d-flex align-items-center mb-3">
+              <ng-container *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
+                <i class="fa-star" [ngClass]="{'fas': +product.rating >= star, 'far': +product.rating < star}" style="color: gold;"></i>
+              </ng-container>
+              <span class="ms-2 text-muted">({{ product.rating }})</span>
+            </div>
 
             <button class="btn btn-primary btn-lg me-2" (click)="addToCart(product)">Add to Cart</button>
             @if(!isloggedin){<p *ngIf="showMsg" class="text-success mt-3">{{ message }}</p>
@@ -27,7 +32,7 @@
             @else {
               <div class="d-flex align-items-center">
                     <button class="btn btn-primary btn-md mt-2 me-2" (click)="addToCart(product)">+</button>
-                    <!-- <p class="mb-0 fs-5">{{ product.category }}</p> -->
+                    <!-- <p class="mb-0 fs-5">{{ cartData.items[0].quantity}}</p> -->
                     <button class="btn btn-primary btn-md mt-2 ms-2" (click)="removeItem(product._id)">-</button>
                   </div>
 

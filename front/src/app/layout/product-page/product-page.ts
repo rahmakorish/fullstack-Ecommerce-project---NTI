@@ -32,7 +32,8 @@ addToCart(myProduct:IProduct) {
 this.cartData = {
 items:[{
     productId: myProduct._id,
-    quantity:1
+    quantity:1,
+    imgURL:myProduct.imgURL    
 }]
 }
   this.cartService.addToCart(this.cartData)?.subscribe({

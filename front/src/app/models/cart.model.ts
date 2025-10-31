@@ -2,7 +2,8 @@
 export interface ICart{
     items:{
     productId:string,
-    quantity:number
+    quantity:number,
+    imgURL?:string
 }[]
 }
 
