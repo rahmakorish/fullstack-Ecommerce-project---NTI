@@ -14,6 +14,7 @@ export class FAQ implements OnInit {
 constructor(private faqServices:FaqServices, private cdr:ChangeDetectorRef){}
 question!:IFAQ[];
   
+
 ngOnInit(): void {
   this.faqServices.getQustions().subscribe({
   next: (res: any) => {
