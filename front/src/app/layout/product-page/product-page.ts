@@ -55,7 +55,7 @@ removeItem(productId: string): void {
     // if (!confirm('Remove this item from cart?')) return;
     this.cartService.removeItem(productId).subscribe({
       next: (cart) => {
-         this.message = `item removed from cart!`;
+        this.message = `item removed from cart!`;
         this.showMsg = true;
 
         setTimeout(() => this.showMsg = false, 1000);
