@@ -37,7 +37,7 @@ items:[{
 }
   this.cartService.addToCart(this.cartData)?.subscribe({
     next:res=>{
-      console.log('Cart updated successfully:', res); 
+      // console.log('Cart updated successfully:', res); 
         this.message = `item added to cart!`;
         this.showMsg = true;
 
@@ -49,6 +49,23 @@ items:[{
     error:err=>console.log(err.message)
   })
 }
+
+removeItem(productId: string): void {
+    // console.log(productId);
+    // if (!confirm('Remove this item from cart?')) return;
+    this.cartService.removeItem(productId).subscribe({
+      next: (cart) => {
+         this.message = `item removed from cart!`;
+        this.showMsg = true;
+
+        setTimeout(() => this.showMsg = false, 1000);
+              this.cdr.detectChanges()
+            this.cdr.detectChanges();
+          },
+      error: (err) => { console.error('Remove item failed:', err); }
+    })}
+
+
 ngOnInit(): void {
 this._authServices.getAuthName().subscribe(data=>{
   if(data){

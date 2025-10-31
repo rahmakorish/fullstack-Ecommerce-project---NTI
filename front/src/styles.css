@@ -38,10 +38,12 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 4px 8px #e97c7c;
   transition: all 0.3s ease;
 }
-
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary:not(:disabled):active,
 .btn-primary:hover {
-  background-color: darken(var(--primary), 10%);
-  border-color: darken(var(--primary), 10%);
+  background-color:#974343;
+  border-color: #e97c7c;
   box-shadow: 0 6px 12px rgb(228, 210, 94);
 }
 

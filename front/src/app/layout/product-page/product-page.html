@@ -10,6 +10,7 @@
         <div class="col-md-7">
           <div class="card-body p-5 my-5">
             <h2 class="card-title" style="color: var(--text);">{{ product.name }}</h2>
+            <p class="card-title" style="color: var(--text);">{{ product.category }}</p>
             <p class="card-text lead text-muted">{{ product.description }}</p>
           @if (product.stock < 5) {
             <p class="card-text lead text-muted">Last {{ product.stock }} items, selling out fast!</p>
@@ -17,12 +18,21 @@
             <p class="card-text fs-4 fw-bold" style="color: var(--primary);">
               <strong>Price: </strong> <span style="color: var(--accent);">{{ product.price }} EGP</span>
             </p>
+            
             <!-- <p class="card-text lead text-muted">{{ product.quantity }}</p> -->
 
             <button class="btn btn-primary btn-lg me-2" (click)="addToCart(product)">Add to Cart</button>
             @if(!isloggedin){<p *ngIf="showMsg" class="text-success mt-3">{{ message }}</p>
 }
-            @else {<p *ngIf="showMsg" class="text-success mt-3">{{ message }}</p>
+            @else {
+              <div class="d-flex align-items-center">
+                    <button class="btn btn-primary btn-md mt-2 me-2" (click)="addToCart(product)">+</button>
+                    <!-- <p class="mb-0 fs-5">{{ product.category }}</p> -->
+                    <button class="btn btn-primary btn-md mt-2 ms-2" (click)="removeItem(product._id)">-</button>
+                  </div>
+
+              
+              <p *ngIf="showMsg" class="text-success mt-3">{{ message }}</p>
 }
           </div>
         </div>
